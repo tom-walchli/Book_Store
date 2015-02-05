@@ -1,0 +1,14 @@
+<h2><%= @p.name %></h2>
+<p><%=  @p.description %></p>
+<p>average rating: <%= @p.avg_rating %></p>
+<ul>
+	<%	@p.reviews.each do |r|  %>
+		<li>
+			<%= "#{r.rating}: #{r.comment}"%> 
+		</li>
+	<%	end %>
+</ul>
+<%  %>
+<%  %>
+<%  %>
+

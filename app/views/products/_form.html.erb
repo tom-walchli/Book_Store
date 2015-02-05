@@ -1,0 +1,26 @@
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
+
+<% if @product.errors.any? %>
+	<ul>
+		<% @product.errors.full_messages.each do |msg| %>
+			<li><%= msg%></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for [@product] do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+	<br>
+	<%= f.label :price %>
+	<%= ftext_field :price %>
+	<br>
+	<%= f.submit 'Save' %>
+<% end %>
+<%= link_to('Cancel', products_path) %>
+<% %>

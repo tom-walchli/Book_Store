@@ -1,0 +1,21 @@
+
+<h3>The latest 20 books:</h3>
+<ul id="prodList">
+	<%	@products.each do |p|  %>
+		<li>
+			<a href=<%= "/show_one/#{p.id}"  %> ><%= "#{p.name}"%></a> 
+			Price: <%= "#{p.price}" %>
+			Reviews: <%= "#{p.reviews.count}" %>
+			av. rating: <%= "#{p.avg_rating}" %>
+<!-- 			<%= p.description.present? ? ' - ' : '' %>-->
+ 			<%= "#{p.description}" %>
+		</li>
+	<%	end %>
+</ul>
+
+<form>
+	<input id="prodName"  type="text" placeholder="Enter product name" name="name"> 
+	<input id="prodDesc"  type="text" placeholder="Description" name="description"> 
+	<input id="prodPrice" type="text" placeholder="Price" name="price"> 
+	<button id="prodSubmit" type="submit" name="price">Add Book</button> 
+</form>

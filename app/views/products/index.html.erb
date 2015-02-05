@@ -1,0 +1,36 @@
+
+<h3>The <%= @list_length %> most recently added books:</h3>
+
+<form action="/search">
+	<input type="text" placeholder="search by name or description" name="query"> 
+	<button type="submit">Search</button> 
+</form>
+
+<table>
+	<tr>
+		<th>Price</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>#ratings</th>
+		<th>Av. rating</th>
+	</tr>
+	<% @products.each do |p|  %>
+		<tr>
+			<td><%= "#{p.price}" %></td>
+			<td><%= link_to(p.name, product_path(p)) %> </td>
+ 			<td><%= "#{p.description}" %></td>
+			<td><%= "#{p.reviews.count}" %></td>
+			<td><%= "#{p.avg_rating}" %></td>
+		</tr>
+	<%	end %>
+</table>
+
+<%= link_to('Add book' , new_product_path) %> 
+
+<!-- <form>
+	<input id="prodName"  type="text" placeholder="Enter product name" name="name"> 
+	<input id="prodDesc"  type="text" placeholder="Description" name="description"> 
+	<input id="prodPrice" type="text" placeholder="Price" name="price"> 
+	<button id="prodSubmit" type="submit" name="price">Add Book</button> 
+</form>
+ -->

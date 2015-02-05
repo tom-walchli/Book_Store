@@ -1,0 +1,24 @@
+
+<h3>I found <%= @products.count %> books that match your query '<%= @query %>':</h3>
+
+<table>
+	<tr>
+		<th>Price</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>#ratings</th>
+		<th>Av. rating</th>
+	</tr>
+	<% @products.each do |p|  %>
+		<tr>
+			<td><%= "#{p.price}" %></td>
+			<td><%= link_to(p.name, product_path(p)) %> </td>
+ 			<td><%= "#{p.description}" %></td>
+			<td><%= "#{p.reviews.count}" %></td>
+			<td><%= "#{p.avg_rating}" %></td>
+		</tr>
+	<%	end %>
+</table>
+
+<%= link_to('Back' , products_path) %> 
+
